@@ -1,0 +1,40 @@
+| {% extends "base.pug" %}
+
+| {% block content %}
+
+form.post-form(
+  method='POST' 
+  action='/notes/note_edit_form/{{ note.id }}'
+)
+  | {% csrf_token %}
+  .container
+    br
+    .form-group.row
+      label.col-sm-1.col-form-label
+      .col-sm-4
+        h3 Note Details
+    .form-group.row
+      label.col-sm-2.col-form-label Title:
+      .col-sm-4
+        input#id_title(
+          type='text' 
+          name='title' 
+          required='' 
+          maxlength='50' 
+          value='{{ note.title }}'
+        )
+    .form-group.row
+      label.col-sm-2.col-form-label Description:
+      .col-sm-4
+        input#id_description(
+          type='text' 
+          name='description' 
+          required='' 
+          value='{{ note.description }}'
+        )
+    .form-group.row
+      label.col-sm-1.col-form-label
+      .col-sm-4
+        button.btn.btn-success(type='submit') Save
+
+| {% endblock content %}

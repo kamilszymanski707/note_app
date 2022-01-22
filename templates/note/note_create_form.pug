@@ -1,0 +1,29 @@
+| {% extends "base.pug" %}
+
+| {% block content %}
+
+form.post-form(
+  method='POST' 
+  action='/notes/note_create_form/'
+)
+  | {% csrf_token %}  
+  .container
+    br
+    .form-group.row
+      label.col-sm-1.col-form-label
+      .col-sm-4
+        h3 Note details
+    .form-group.row
+      label.col-sm-2.col-form-label Title:
+      .col-sm-4
+        | {{ form.title }}
+    .form-group.row
+      label.col-sm-2.col-form-label Description:
+      .col-sm-4
+        | {{ form.description }}
+    .form-group.row
+      label.col-sm-1.col-form-label
+      .col-sm-4
+        button.btn.btn-primary(type='submit') Save
+
+| {% endblock content %}
