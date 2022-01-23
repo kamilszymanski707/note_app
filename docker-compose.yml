@@ -3,6 +3,7 @@ version: '3.9'
 services:
   db:
     image: postgres:14.1-alpine
+    restart: always
     volumes:
       - ./data/db:/var/lib/postgresql/data
     ports:
@@ -12,6 +13,7 @@ services:
 
   web:
     build: .
+    restart: always
     volumes:
       - .:/note_app
     ports:

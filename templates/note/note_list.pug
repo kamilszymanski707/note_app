@@ -3,6 +3,9 @@
 | {% block content %}
 
 table.table.table-striped.table-bordered.table-sm
+
+  | {% if notes %}
+
   thead.thead-dark
     tr
       th Title
@@ -32,6 +35,14 @@ table.table.table-striped.table-bordered.table-sm
         )
 
     | {% endfor %}
+
+  | {% else %}
+
+  thead.thead-dark
+    tr 
+      h1 List is empty. Please add notes ...
+
+  | {% endif %}
 
 br
 br
